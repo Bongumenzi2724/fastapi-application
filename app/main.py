@@ -57,10 +57,10 @@ def find_index_posts(id):
             return i
 
 
-
 @app.get("/login")
 async def get_user():
     return {"message":"Hello login to my api"}
+
 
 @app.get("/posts")
 async def get_posts():
@@ -133,7 +133,6 @@ async def delete_post(id:int):
 
 
 @app.put("/posts/{id}",status_code=status.HTTP_200_OK)
-
 async def update_posts(id:int,post:models):
     
     cursor.execute("""UPDATE posts SET title=%s,content=%s,published=%s WHERE id=%s RETURNING *""",(post.title,post.content,post.published,str(id)))

@@ -43,3 +43,6 @@ app.include_router(authentication.router)
 app.include_router(vote.router)
 
 
+@app.get("/rootPath")
+def root():
+    return {"message":"Hello World"}
